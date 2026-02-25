@@ -1,8 +1,17 @@
-import styles from './CardAtivo.module.css';
-export function Heading(props){
-    console.log(props)
-    return(
-        <h1 className={styles.heading}>{props.children}</h1>
-    )
-}
+export function Heading({ children }) {
+  let cor = 'black';
 
+  if (typeof children === 'string') {
+    if (children.includes('Lucro')) {
+      cor = 'blue';
+    } else if (children.includes('Prejuízo')) {
+      cor = 'red';
+    }
+  }
+
+  return (
+    <h1 style={{ color: cor }}>
+      {children}
+    </h1>
+  );
+}
