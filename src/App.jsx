@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { CardAtivo } from './component/CardAtivo.jsx';
+import { Heading } from './component/Heading.jsx';
+import './styles/theme.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="container">
+      {/* Teste o Desafio Nível Tubarão mudando para "Meu Portfólio: Lucro Máximo" ou "Prejuízo" */}
+      <Heading>Portfólio de Vinicius:</Heading>
 
-export default App
+      <div className="grid">
+        {/* Card de Bitcoin */}
+        <CardAtivo titulo="Bitcoin (BTC)">
+          <p>Preço: R$ 350.000,00</p>
+          <span style={{ color: 'var(--alta)', fontWeight: 'bold' }}>+5.2% hoje</span>
+        </CardAtivo>
+
+        {/* Card de Fundo Imobiliário */}
+        <CardAtivo titulo="Fundo Imobiliário (HGLG11)">
+          <p>Dividendo: R$ 1,10</p>
+          <span style={{ color: 'var(--alta)', fontWeight: 'bold' }}>Rendimento estável</span>
+        </CardAtivo>
+
+        {/* Card de Ação */}
+        <CardAtivo titulo="Empresa X (VALE3)">
+          <p>Preço: R$ 65,20</p>
+          <span style={{ color: 'var(--baixa)', fontWeight: 'bold' }}>-1.8% hoje</span>
+        </CardAtivo>
+      </div>
+    </div>
+  );
+}
